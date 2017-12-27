@@ -1,14 +1,44 @@
 <!DOCTYPE html>
-<html>
+<html lang="de">
 <head>
-  <title>YoudriveLeadManager</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="YOU-DRIVE GmbH">
 
-<%= yield %>
+  <meta name='description'>
+  <title>
+    YOU-DRIVE Lead Manager
+  </title>
+
+  <%= favicon_link_tag 'favicon.png', rel: 'icon', type: 'image/png' %>
+  <%= stylesheet_link_tag 'application', media: 'all' %>
+  <%= csrf_meta_tags %>
+
+
+</head>
+<body class="top-navigation public-pages">
+
+<div class="navbar-wrapper">
+  <nav class="header__navbar navbar navbar-fixed-top" role="navigation">
+    <div class="container">
+      <div class="navbar-header page-scroll">
+        <a href="/" class="header__logo">
+          <%#= image_tag "yd-logo-white.png" %>
+        </a>
+      </div>
+
+    </div>
+  </nav>
+</div>
+
+<div class="public-pages__content">
+  <div class="container">
+    <%= yield %>
+  </div>
+</div>
+
+<%= render "layouts/basics/footer" %>
 
 </body>
 </html>

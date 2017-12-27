@@ -3,9 +3,11 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+  root 'public#index'
 
-  get 'lead_manager/form/:id', to: 'lead_manager#form'
+  get '/:learner_lead_slug', to: 'lead_manager#form'
+  get '/:learner_lead_slug/:advertiser_key_id', to: 'lead_manager#form'
+  get '/:learner_lead_slug/:advertiser_key_id/:env', to: 'lead_manager#form'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

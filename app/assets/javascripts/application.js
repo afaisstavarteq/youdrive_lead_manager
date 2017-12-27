@@ -10,7 +10,20 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require jquery
-//= require jquery_ujs
-//= require turbolinks
-//= require_tree .
+//= require jquery/dist/jquery.js
+//= require angular/angular.js
+//= require angular-rails-templates
+////= require chart.js/dist/Chart.js
+////= require angular-chart.js/dist/angular-chart.js
+//= require angular-sanitize/angular-sanitize.js
+////= require moment/moment.js
+//= require lodash/dist/lodash.js
+//= require angular-bootstrap/ui-bootstrap-tpls.js
+//= require bootstrap/dist/js/bootstrap.js
+//= require inspinia.js
+//= require eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js
+//= require angular-bootstrap-datetimepicker-directive/angular-bootstrap-datetimepicker-directive.js
+// require_tree .
+
+//= require angular/app.js
+//= require angular/controllers/lead_manager/form.controller.js

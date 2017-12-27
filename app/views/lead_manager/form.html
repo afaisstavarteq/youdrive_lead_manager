@@ -1,0 +1,220 @@
+<div id="page-wrapper"
+     class="gray-bg lead-manager-form ng-cloak"
+     ng-app="de.youlearn.statistic"
+     ng-controller="LeadManagerFormCtrl"
+     ng-init="init('<%= @params[:learner_lead_slug] %>', '<%= @params[:advertiser_key_id] %>', '<%= @params[:env] %>')">
+    <div class="wrapper wrapper-content animated fadeInRight">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h2>Online Anmeldung
+                        </h2>
+                        <p>Bitte fülle die Felder aus, um dich bei unserer Fahrschule anzumelden.</p>
+                    </div>
+                    <div class="ibox-content"
+                         ng-show="saved">
+                        <h2><i class="fa fa-check text-navy"></i>&nbsp;Wir haben deine Anfrage erhalten und werden uns
+                            mit dir in Verbindung setzen.</h2>
+                    </div>
+                    <div class="ibox-content"
+                         ng-show="!saved">
+                        <form ng-submit="submit()" class="form-horizontal">
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Dein Name</label>
+                                <div class="col-sm-10">
+                                    <div class="row">
+                                        <div class="col-sm-2">
+                                            <div class="form-group">
+                                                <select class="form-control" name="account" required
+                                                        ng-model="formData.salutation">
+                                                    <option value="male">Herr</option>
+                                                    <option value="female">Frau</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-5">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control" placeholder="Vorname"
+                                                       required ng-model="formData.first_name">
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-5">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control" placeholder="Nachname"
+                                                       required
+                                                       ng-model="formData.name">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Adresse</label>
+                                <div class="col-sm-10">
+                                    <div class="row">
+                                        <div class="col-sm-5">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control"
+                                                       placeholder="Straße und Hausnummer" required
+                                                       ng-model="formData.street_house_no">
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <div class="form-group">
+                                                <input type="number" class="form-control" placeholder="PLZ" required
+                                                       ng-model="formData.zip_code">
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-5">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control" placeholder="Ort" required
+                                                       ng-model="formData.city">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Geburtsdatum / -ort</label>
+                                <div class="col-sm-10">
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <div class='input-group date' id='datetimepicker'>
+                                                <input type="text" class="form-control"
+                                                       placeholder="Geburtsdatum"
+                                                       required
+                                                       datetimepicker
+                                                       datetimepicker-options="{viewMode: 'years', format: 'DD.MM.YYYY', icons:{next:'glyphicon glyphicon-arrow-right',previous:'glyphicon glyphicon-arrow-left',up:'glyphicon glyphicon-arrow-up',down:'glyphicon glyphicon-arrow-down'}}"
+                                                       name="time"
+                                                       ng-model="formData.date_of_birth">
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control" placeholder="Geburtsort"
+                                                       required
+                                                       ng-model="formData.birthplace">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="hr-line-dashed"></div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Kontakt-Daten</label>
+                                <div class="col-sm-10">
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <div class="form-group">
+                                                <input type="email" class="form-control" placeholder="E-Mail-Adresse"
+                                                       required ng-model="formData.email">
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="form-group">
+                                                <input type="tel" class="form-control" placeholder="Handynummer"
+                                                       required ng-model="formData.mobile">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="hr-line-dashed"></div>
+                            <div class="form-group"><label class="col-sm-2 control-label">Führerschein</label>
+                                <div class="col-sm-10">
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control"
+                                                       placeholder="Welchen Führerschein möchtest du machen?"
+                                                       required ng-model="formData.drivers_licence_info">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="hr-line-dashed"></div>
+                            <div class="form-group"><label class="col-sm-2 control-label">Sonstiges</label>
+                                <div class="col-sm-10">
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control"
+                                                       placeholder="Hier kannst du uns weitere Dinge mitteilen"
+                                                       ng-model="formData.comment">
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control"
+                                                       placeholder="Wie oder durch wen bist du auf uns aufmerksam geworden?"
+                                                       ng-model="formData.source">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="hr-line-dashed"></div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label"></label>
+                                <div class="col-sm-10">
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <label class="">
+                                                <div class="checkbox checkbox-success">
+                                                    <input id="checkbox3" type="checkbox" required
+                                                           ng-model="formData.toc_accepted">
+                                                    <label for="checkbox3">
+                                                        &nbsp;&nbsp;Ich habe die Datenschutzerklärung gelesen und
+                                                        stimme
+                                                        ihr zu.
+                                                    </label>
+                                                </div>
+
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-sm-10 col-sm-offset-2">
+                                    <button class="btn btn-primary p-sm" type="submit"
+                                            ng-disabled="isSaving">Jetzt anmelden
+                                    </button>
+                                </div>
+                                <div class="col-sm-10 col-sm-offset-2">
+                                    <div class="font-bold text-danger">
+                                        {{saveError}}
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+
+  angular
+    .module('app', [
+      'datetimepicker'
+    ])
+    .config([
+      'datetimepickerProvider',
+      function (datetimepickerProvider) {
+        datetimepickerProvider.setOptions({
+          locale: 'de',
+          format: 'MM.dd.YYYY',
+          defaultDate: new Date(2000, 0, 1, 00, 01),
+        });
+      }
+    ]);
+</script>

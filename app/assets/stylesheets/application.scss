@@ -1,0 +1,11 @@
+@import "bootstrap";
+@import "eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.css";
+@import "inspinia/style";
+@import "font-awesome/scss/font-awesome.scss";
+@import "components/lead-manager/form";
+@import "awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.scss";
+
+// custom scss
+body {
+  background-color: transparent;
+}
