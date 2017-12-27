@@ -1,0 +1,8 @@
+---
+applications:
+- name: youdrive_lead_manager
+  memory: 256MB
+  disk_quota: 512MB
+  instances: 2
+  host: youdrive_lead_manager
+  domain: you-drive.de
